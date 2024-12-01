@@ -15,11 +15,12 @@ import {
 } from "@react-navigation/native";
 
 //3. Install deepmerge first and import it
-import { Colors } from "@/common/constants/theme";
+import DarkJson from "@/common/constants/theme/dark.json";
+import LightJson from "@/common/constants/theme/light.json";
 import merge from "deepmerge";
 
-const customDarkTheme = { ...MD3DarkTheme, colors: Colors.dark };
-const customLightTheme = { ...MD3LightTheme, colors: Colors.light };
+const customDarkTheme = { ...MD3DarkTheme, colors: LightJson.colors };
+const customLightTheme = { ...MD3LightTheme, colors: DarkJson.colors };
 
 //4. The adaptNavigationTheme function takes an existing React Navigation
 // theme and returns a React Navigation theme using the colors from
@@ -46,7 +47,7 @@ export default function UIProvider({
     colorScheme === "dark" ? CombinedDarkTheme : CombinedLightTheme;
 
   return (
-    <PaperProvider theme={paperTheme}>
+    <PaperProvider theme={{ ...paperTheme, roundness: 1 }}>
       {/* @ts-ignore */}
       <ThemeProvider value={paperTheme}>
         {children}
