@@ -1,22 +1,11 @@
 import "@/app/global.css";
 import UIProvider from "@/common/providers/ui-provider";
-import { SplashScreen, Stack } from "expo-router";
-import { useCallback, useEffect, useState } from "react";
+import { Stack } from "expo-router";
 import { SafeAreaProvider } from "react-native-safe-area-context";
-SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
-  const [isMounted, setIsMounted] = useState(false);
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
-  const handleOnLayout = useCallback(() => {
-    if (isMounted) {
-      SplashScreen.hideAsync();
-    }
-  }, [isMounted]);
   return (
-    <SafeAreaProvider onLayout={handleOnLayout}>
+    <SafeAreaProvider>
       <UIProvider>
         <Stack
           screenOptions={{

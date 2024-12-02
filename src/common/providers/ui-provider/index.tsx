@@ -19,8 +19,8 @@ import DarkJson from "@/common/constants/theme/dark.json";
 import LightJson from "@/common/constants/theme/light.json";
 import merge from "deepmerge";
 
-const customDarkTheme = { ...MD3DarkTheme, colors: LightJson.colors };
-const customLightTheme = { ...MD3LightTheme, colors: DarkJson.colors };
+const customDarkTheme = { ...MD3DarkTheme, colors: DarkJson.colors };
+const customLightTheme = { ...MD3LightTheme, colors: LightJson.colors };
 
 //4. The adaptNavigationTheme function takes an existing React Navigation
 // theme and returns a React Navigation theme using the colors from

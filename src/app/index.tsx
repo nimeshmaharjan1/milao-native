@@ -1,3 +1,4 @@
+import Logo from "@/common/components/logo";
 import StyledView from "@/common/components/styled/styled-view";
 import { Link, router } from "expo-router";
 import React from "react";
@@ -16,12 +17,12 @@ const OnboardingIndexPage = () => {
         style={{
           flex: 1,
           justifyContent: "space-between",
-          paddingBottom: bottom,
+          paddingBottom: bottom + 24,
         }}
       >
         <View className="flex-1 justify-center gap-14">
-          <View className="gap-4">
-            <Text variant="headlineLarge">Icon</Text>
+          <View className="gap-6">
+            <Logo size={52} />
             <Text
               variant="headlineLarge"
               style={{
@@ -33,20 +34,25 @@ const OnboardingIndexPage = () => {
           </View>
 
           <View className="gap-4">
-            <Text>Have you used Milao before?</Text>
+            <Text>
+              Have you used <Text className="!font-bold">Bolau</Text> before?
+            </Text>
             <Button
               mode="contained"
               onPress={() => router.push("/(onboarding)")}
             >
               It's my first time!
             </Button>
-            <Button mode="outlined" onPress={() => console.log("hello")}>
-              I've used it before
+            <Button
+              mode="outlined"
+              onPress={() => router.push("/(auth)/login/index")}
+            >
+              <Text className="dark:!text-blue-300">I've used it before</Text>
             </Button>
           </View>
         </View>
         <View>
-          <Text>
+          <Text variant="bodyMedium">
             Are you a local professional?{" "}
             <Link
               href={"/(user)/settings"}
