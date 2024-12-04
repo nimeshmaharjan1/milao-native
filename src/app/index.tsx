@@ -1,6 +1,6 @@
 import Logo from "@/common/components/logo";
 import StyledView from "@/common/components/styled/styled-view";
-import { Link, router } from "expo-router";
+import { Redirect, router } from "expo-router";
 import React from "react";
 import { View } from "react-native";
 import { Button, Text } from "react-native-paper";
@@ -11,6 +11,9 @@ import {
 
 const OnboardingIndexPage = () => {
   const { bottom } = useSafeAreaInsets();
+  Redirect({
+    href: "/login",
+  });
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <StyledView
@@ -43,10 +46,7 @@ const OnboardingIndexPage = () => {
             >
               It's my first time!
             </Button>
-            <Button
-              mode="outlined"
-              onPress={() => router.push("/(auth)/login/index")}
-            >
+            <Button mode="outlined" onPress={() => router.push("/login")}>
               <Text className="dark:!text-blue-300">I've used it before</Text>
             </Button>
           </View>
@@ -54,12 +54,12 @@ const OnboardingIndexPage = () => {
         <View>
           <Text variant="bodyMedium">
             Are you a local professional?{" "}
-            <Link
-              href={"/(user)/settings"}
+            <Text
+              // href={"/(user)/settings"}
               className="text-blue-500 dark:text-blue-400"
             >
               Go here
-            </Link>
+            </Text>
           </Text>
         </View>
       </StyledView>

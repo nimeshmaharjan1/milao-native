@@ -1,21 +1,29 @@
 import "@/app/global.css";
 import UIProvider from "@/common/providers/ui-provider";
 import { Stack } from "expo-router";
+import { KeyboardAvoidingView, Platform, View } from "react-native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 
 export default function RootLayout() {
   return (
     <SafeAreaProvider>
       <UIProvider>
-        <Stack
-          screenOptions={{
-            headerShown: false,
-          }}
+        <KeyboardAvoidingView
+          behavior={Platform.OS === "ios" ? "padding" : "height"}
+          className="flex-1"
         >
-          <Stack.Screen name="index"></Stack.Screen>
-          <Stack.Screen name="(onboarding)" />
-          <Stack.Screen name="(user)" />
-        </Stack>
+          <View className="flex-1">
+            <Stack
+              screenOptions={{
+                headerShown: false,
+              }}
+            >
+              <Stack.Screen name="index"></Stack.Screen>
+              <Stack.Screen name="(onboarding)" />
+              <Stack.Screen name="(user)" />
+            </Stack>
+          </View>
+        </KeyboardAvoidingView>
       </UIProvider>
     </SafeAreaProvider>
   );

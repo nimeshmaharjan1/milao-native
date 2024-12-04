@@ -2,7 +2,7 @@ import { router, Stack } from "expo-router";
 import React from "react";
 import { Appbar } from "react-native-paper";
 
-const SignUpLayout = () => {
+const LoginLayout = () => {
   return (
     <Stack
       screenOptions={{
@@ -17,9 +17,8 @@ const SignUpLayout = () => {
     >
       <Stack.Screen name="index"></Stack.Screen>
       <Stack.Screen name="password/index"></Stack.Screen>
-      <Stack.Screen name="name/index"></Stack.Screen>
     </Stack>
   );
 };
 
-export default SignUpLayout;
+export default LoginLayout;

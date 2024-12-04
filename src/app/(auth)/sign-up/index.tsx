@@ -8,18 +8,18 @@ const SignUpScreen = () => {
   const { bottom } = useSafeAreaInsets();
   return (
     <View
-      className="gap-3 p-6 justify-between flex-1"
+      className="gap-3 px-6 pt-2 justify-between flex-1"
       style={{
         paddingBottom: bottom + 24,
       }}
     >
-      <View className="gap-8 pt-4">
-        <Text variant="headlineMedium" className="!font-bold">
+      <View className="gap-8">
+        <Text variant="headlineSmall" className="!font-bold">
           What's your email?
         </Text>
         <TextInput left={<TextInput.Icon icon="email" />}></TextInput>
       </View>
-      <Button mode="contained" onPress={() => router.push("/sign-up/name")}>
+      <Button mode="contained" onPress={() => router.push("/sign-up/password")}>
         Next
       </Button>
     </View>

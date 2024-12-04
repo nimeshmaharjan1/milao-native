@@ -1,10 +1,11 @@
 import React, { useEffect, useRef } from "react";
 import { Alert, View } from "react-native";
 
+import SocialButton from "@/common/components/social-button";
 import { Feather } from "@expo/vector-icons";
 import { Link } from "expo-router";
 import Onboarding from "react-native-onboarding-swiper";
-import { Text, TouchableRipple, useTheme } from "react-native-paper";
+import { Text, useTheme } from "react-native-paper";
 
 const OnboardingScreen = ({ isFromBack }: { isFromBack?: boolean }) => {
   const onboardingRef = useRef<any>(null);
@@ -72,7 +73,7 @@ const OnboardingScreen = ({ isFromBack }: { isFromBack?: boolean }) => {
             <View className="gap-8 px-6">
               <View className="gap-3">
                 <Text
-                  variant="headlineMedium"
+                  variant="headlineSmall"
                   style={{
                     fontWeight: "bold",
                   }}
@@ -122,27 +123,3 @@ const OnboardingScreen = ({ isFromBack }: { isFromBack?: boolean }) => {
 };
 
 export default OnboardingScreen;
-
-const SocialButton = () => {
-  const theme = useTheme();
-  return (
-    <TouchableRipple
-      className="py-3 px-2 items-center gap-3"
-      style={{
-        borderWidth: 1,
-        borderRadius: 4,
-        borderColor: theme.colors.outline,
-      }}
-      onPress={() => console.log("hello")}
-    >
-      <Text
-        style={{
-          color: theme.colors.primary,
-          fontWeight: "bold",
-        }}
-      >
-        Sign Up with Google
-      </Text>
-    </TouchableRipple>
-  );
-};
