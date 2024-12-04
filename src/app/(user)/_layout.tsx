@@ -48,7 +48,7 @@ const UserPortalLayout = () => {
                 ? options.tabBarLabel
                 : options.title !== undefined
                   ? options.title
-                  : "Home";
+                  : route.name;
 
             return label as string;
           }}
@@ -56,13 +56,13 @@ const UserPortalLayout = () => {
       )}
     >
       <Tabs.Screen
-        name="explore/index"
+        name="explore"
         options={{
           tabBarLabel: "Explore",
-          tabBarIcon: ({ color, size }) => {
+          tabBarIcon: ({ color, size, focused }) => {
             return (
               <MaterialCommunityIcons
-                name="compass-outline"
+                name={focused ? "compass" : "compass-outline"}
                 size={size}
                 color={color}
               />
@@ -74,10 +74,10 @@ const UserPortalLayout = () => {
         name="projects/index"
         options={{
           tabBarLabel: "Projects",
-          tabBarIcon: ({ color, size }) => {
+          tabBarIcon: ({ color, size, focused }) => {
             return (
               <MaterialCommunityIcons
-                name="check-circle-outline"
+                name={focused ? "check-circle" : "check-circle-outline"}
                 size={size}
                 color={color}
               />
@@ -89,10 +89,10 @@ const UserPortalLayout = () => {
         name="inbox/index"
         options={{
           tabBarLabel: "Inbox",
-          tabBarIcon: ({ color, size }) => {
+          tabBarIcon: ({ color, size, focused }) => {
             return (
               <MaterialCommunityIcons
-                name="message-outline"
+                name={focused ? "message" : "message-outline"}
                 size={size}
                 color={color}
               />
@@ -104,10 +104,10 @@ const UserPortalLayout = () => {
         name="you/index"
         options={{
           tabBarLabel: "You",
-          tabBarIcon: ({ color, size }) => {
+          tabBarIcon: ({ color, size, focused }) => {
             return (
               <MaterialCommunityIcons
-                name="account-box-outline"
+                name={focused ? "account-box" : "account-box-outline"}
                 size={size}
                 color={color}
               />

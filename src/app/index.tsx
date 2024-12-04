@@ -12,7 +12,7 @@ import {
 const OnboardingIndexPage = () => {
   const { bottom } = useSafeAreaInsets();
   Redirect({
-    href: "/login",
+    href: "/(user)/explore",
   });
   return (
     <SafeAreaView style={{ flex: 1 }}>
